@@ -38,32 +38,32 @@ end
 
 # ............................................................................
 
-function to_JSON(io::IO, obj)
+function to_JSON(io ::IO, obj)
     visit(obj, io)
 end
 
-function visit(obj, io::IO)
+function visit(obj, io ::IO)
     error("default visit() called for obj type: ", typeof(obj))
 end
 
-function visit(obj ::Real, io::IO)
+function visit(obj ::Real, io ::IO)
     print(io, obj)
 end
 
 # note that this is redundant given the 'Real' overload above:
 #
-# function visit(obj ::Bool, io::IO)
+# function visit(obj ::Bool, io ::IO)
 #     write(io, (obj ? "true" : "false"))
 # end
 
-function visit(obj ::AbstractString, io::IO)
+function visit(obj ::AbstractString, io ::IO)
     print(io, '\"')
     print(io, obj)
     print(io, '\"')
 
 end
 
-function visit(obj ::AbstractArray, io::IO)
+function visit(obj ::AbstractArray, io ::IO)
     print(io, '[')
     for i in 1 : length(obj)
         i > 1 && print(io, ", ")
@@ -72,7 +72,7 @@ function visit(obj ::AbstractArray, io::IO)
     print(io, ']')
 end
 
-function visit(obj ::AbstractDict, io::IO)
+function visit(obj ::AbstractDict, io ::IO)
     print(io, '{')
     first = true
     for (k, v) in obj
@@ -86,7 +86,7 @@ end
 
 # adding this overload to support tuples:
 
-function visit(obj ::Tuple, io::IO)
+function visit(obj ::Tuple, io ::IO)
     print(io, '[')
     for i in 1 : length(obj)
         i > 1 && print(io, ", ")
