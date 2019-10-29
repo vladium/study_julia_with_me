@@ -8,7 +8,7 @@ module Knapsack
 
     running this benchmark from command line:
 
-    >julia knapsack.jl
+    >julia Knapsack.jl
 =#
 # ............................................................................
 """
