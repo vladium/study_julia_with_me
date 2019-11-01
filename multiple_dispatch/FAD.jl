@@ -20,8 +20,8 @@ export derivative, ∂, myerf, root_solve; # for convenience of 'using Main.FAD'
 # ............................................................................
 
 struct Context <: Number
-    v   ::Float64
-    ∂   ::Float64
+    v   ::Number
+    ∂   ::Number
 end
 # ............................................................................
 # binary ops:
